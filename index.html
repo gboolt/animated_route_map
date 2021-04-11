@@ -73,111 +73,128 @@
 
 
 
-        var coords_blue = [
-           new google.maps.LatLng({"lat": 45.757490630489066, "lng": 4.915373258813967}),
-           new google.maps.LatLng({"lat": 45.75746817406099,  "lng": 4.915300839173309}),
-           new google.maps.LatLng({"lat": 45.757441974883484, "lng": 4.915251218308414}),
-           new google.maps.LatLng({"lat": 45.75743448940191,  "lng": 4.915209644070258}),
-           new google.maps.LatLng({"lat": 45.75741577569366,  "lng": 4.915164046518733}),
-           new google.maps.LatLng({"lat": 45.75740080472252,  "lng": 4.915111743444925}),
-           new google.maps.LatLng({"lat": 45.75739051217756,  "lng": 4.915051393744377}),
-           new google.maps.LatLng({"lat": 45.757388640805544, "lng": 4.915009819506221}),
-           new google.maps.LatLng({"lat": 45.75738676943345,  "lng": 4.9149427642833885}),
-           new google.maps.LatLng({"lat": 45.75737647688587,  "lng": 4.914859615807079}),
-           new google.maps.LatLng({"lat": 45.75734934197864,  "lng": 4.914776467330767}),
-           new google.maps.LatLng({"lat": 45.757314721560576, "lng": 4.914771102912941}),
-           new google.maps.LatLng({"lat": 45.75727448699372,  "lng": 4.91477914953968}),
-           new google.maps.LatLng({"lat": 45.7572398665292,    "lng": 4.914814018255553}),
-           new google.maps.LatLng({"lat": 45.75714816897892,   "lng": 4.914848886971426}),
-           new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771654}),
-           new google.maps.LatLng({"lat": 45.75702372206251,   "lng": 4.915037982699809}),
-           new google.maps.LatLng({"lat": 45.75699845836891,   "lng": 4.915118448967208}),
-           new google.maps.LatLng({"lat": 45.75702840052303,   "lng": 4.915257923830697}),
-           new google.maps.LatLng({"lat": 45.7570396288267,    "lng": 4.915430926305602}),
-           new google.maps.LatLng({"lat": 45.75707331372412,   "lng": 4.915493958215064}),
-           new google.maps.LatLng({"lat": 45.7571069986012,    "lng": 4.91562672755627}),
-           new google.maps.LatLng({"lat": 45.757133197935985,  "lng": 4.91570182940584}),
-           new google.maps.LatLng({"lat": 45.75714816897892,   "lng": 4.915762179106388}),
-           new google.maps.LatLng({"lat": 45.75716594708716,   "lng": 4.915793024508892}),
-           new google.maps.LatLng({"lat": 45.75721460293346,   "lng": 4.915901653969878}),
-           new google.maps.LatLng({"lat": 45.75724548066005,   "lng": 4.915908359492161}),
-           new google.maps.LatLng({"lat": 45.75726700148968,   "lng": 4.915882878507485}),
-           new google.maps.LatLng({"lat": 45.75730817174934,   "lng": 4.91585337420944}),
-           new google.maps.LatLng({"lat": 45.75741671137921,   "lng": 4.915770225733128}),
-           new google.maps.LatLng({"lat": 45.757480337960644,  "lng": 4.915731333703887}),
-           new google.maps.LatLng({"lat": 45.757554256986204,  "lng": 4.915658914063229}),
-           new google.maps.LatLng({"lat": 45.75756174245169,   "lng": 4.915571742273548}),
-           new google.maps.LatLng({"lat": 45.757515893959855,  "lng": 4.915429585201145}),
-           new google.maps.LatLng({"lat": 45.757496244594655,  "lng": 4.915366553291684}),
-           new google.maps.LatLng({"lat": 45.757475659538,     "lng": 4.915323637949072}),
-           new google.maps.LatLng({"lat": 45.757437296457645,  "lng": 4.915302180277766}),
-           new google.maps.LatLng({"lat": 45.757385833747364, "lng": 4.915322296844615})
-        ];
-        
-        var distance = google.maps.geometry.spherical.computeLength(coords_blue);
-        var duration = 10 * 60;
-        var speed = distance / duration;
-        var fps = 10;
-        var resolution = speed * (1 / fps);
+            var coords_blue = [
+              new google.maps.LatLng({"lat": 45.757490630489066, "lng": 4.915373258813967}),
+              new google.maps.LatLng({"lat": 45.75746817406099,  "lng": 4.915300839173309}),
+              new google.maps.LatLng({"lat": 45.757441974883484, "lng": 4.915251218308414}),
+              new google.maps.LatLng({"lat": 45.75743448940191,  "lng": 4.915209644070258}),
+              new google.maps.LatLng({"lat": 45.75741577569366,  "lng": 4.915164046518733}),
+              new google.maps.LatLng({"lat": 45.75740080472252,  "lng": 4.915111743444925}),
+              new google.maps.LatLng({"lat": 45.75739051217756,  "lng": 4.915051393744377}),
+              new google.maps.LatLng({"lat": 45.757388640805544, "lng": 4.915009819506221}),
+              new google.maps.LatLng({"lat": 45.75738676943345,  "lng": 4.9149427642833885}),
+              new google.maps.LatLng({"lat": 45.75737647688587,  "lng": 4.914859615807079}),
+              new google.maps.LatLng({"lat": 45.75737647688587,  "lng": 4.914859615807079}),
+              new google.maps.LatLng({"lat": 45.75734934197864,  "lng": 4.914776467330767}),
+              new google.maps.LatLng({"lat": 45.757314721560576, "lng": 4.914771102912941}),
+              new google.maps.LatLng({"lat": 45.75727448699372,  "lng": 4.91477914953968}),
+              new google.maps.LatLng({"lat": 45.7572398665292,    "lng": 4.914814018255553}),
+              new google.maps.LatLng({"lat": 45.75714816897892,   "lng": 4.914848886971426}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771654}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771655}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771656}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771657}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771658}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771659}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771658}),
+              new google.maps.LatLng({"lat": 45.75706769957596,   "lng": 4.91492264771657}),
+              new google.maps.LatLng({"lat": 45.75702372206251,   "lng": 4.915037982699809}),
+              new google.maps.LatLng({"lat": 45.75699845836891,   "lng": 4.915118448967208}),
+              new google.maps.LatLng({"lat": 45.75702840052303,   "lng": 4.915257923830697}),
+              new google.maps.LatLng({"lat": 45.7570396288267,    "lng": 4.915430926305602}),
+              new google.maps.LatLng({"lat": 45.75707331372412,   "lng": 4.915493958215064}),
+              new google.maps.LatLng({"lat": 45.7571069986012,    "lng": 4.91562672755627}),
+              new google.maps.LatLng({"lat": 45.757133197935985,  "lng": 4.91570182940584}),
+              new google.maps.LatLng({"lat": 45.75714816897892,   "lng": 4.915762179106388}),
+              new google.maps.LatLng({"lat": 45.75716594708716,   "lng": 4.915793024508892}),
+              new google.maps.LatLng({"lat": 45.75721460293346,   "lng": 4.915901653969878}),
+              new google.maps.LatLng({"lat": 45.75724548066005,   "lng": 4.915908359492161}),
+              new google.maps.LatLng({"lat": 45.75726700148968,   "lng": 4.915882878507485}),
+              new google.maps.LatLng({"lat": 45.75730817174934,   "lng": 4.91585337420944}),
+              new google.maps.LatLng({"lat": 45.75741671137921,   "lng": 4.915770225733128}),
+              new google.maps.LatLng({"lat": 45.757480337960644,  "lng": 4.915731333703887}),
+              new google.maps.LatLng({"lat": 45.757554256986204,  "lng": 4.915658914063229}),
+              new google.maps.LatLng({"lat": 45.75756174245169,   "lng": 4.915571742273548}),
+              new google.maps.LatLng({"lat": 45.757515893959855,  "lng": 4.915429585201145}),
+              new google.maps.LatLng({"lat": 45.757496244594655,  "lng": 4.915366553291684}),
+              new google.maps.LatLng({"lat": 45.757475659538,     "lng": 4.915323637949072}),
+              new google.maps.LatLng({"lat": 45.757437296457645,  "lng": 4.915302180277766}),
+              new google.maps.LatLng({"lat": 45.757385833747364, "lng": 4.915322296844615}),
+              new google.maps.LatLng({"lat": 45.757385833747364, "lng": 4.915322296844615})
+            ];
+            var coords_yellow = [
+                new google.maps.LatLng({"lat": 45.757399869036696, "lng": 4.9148998489407765}),
+                new google.maps.LatLng({"lat": 45.75740641883717,  "lng": 4.914992385148285}),
+                new google.maps.LatLng({"lat": 45.757397061979106, "lng": 4.9150661458934}),
+                new google.maps.LatLng({"lat": 45.75742887529012,  "lng": 4.915197574130149}),
+                new google.maps.LatLng({"lat": 45.75745507447377,  "lng": 4.915318273531245}),
+                new google.maps.LatLng({"lat": 45.75750466575203,  "lng": 4.915409468634296}),
+                new google.maps.LatLng({"lat": 45.75752244374669,  "lng": 4.915492617110607}),
+                new google.maps.LatLng({"lat": 45.75755519266943,  "lng": 4.9155623545423515}),
+                new google.maps.LatLng({"lat": 45.75756735655013,  "lng": 4.9156401386008355}),
+                new google.maps.LatLng({"lat": 45.75754864288644,  "lng": 4.9156750073167075}),
+                new google.maps.LatLng({"lat": 45.75751963669528,  "lng": 4.915692441674644}),
+                new google.maps.LatLng({"lat": 45.7575074728042,   "lng": 4.915711217137038}),
+                new google.maps.LatLng({"lat": 45.757460688582945, "lng": 4.91575010916628}),
+                new google.maps.LatLng({"lat": 45.75742700391937,  "lng": 4.915778272359868}),
+                new google.maps.LatLng({"lat": 45.75739519060732,  "lng": 4.915782295673239}),
+                new google.maps.LatLng({"lat": 45.75727074424183,  "lng": 4.915876172985202}),
+                new google.maps.LatLng({"lat": 45.75721741000021,  "lng": 4.915917747223358}),
+                new google.maps.LatLng({"lat": 45.757162204328026, "lng": 4.915779613464325}),
+                new google.maps.LatLng({"lat": 45.75712103396066,  "lng": 4.915693782779101}),
+                new google.maps.LatLng({"lat": 45.757089220474164, "lng": 4.915547602393328}),
+                new google.maps.LatLng({"lat": 45.7571069986012,   "lng": 4.915460430603648}),
+                new google.maps.LatLng({"lat": 45.757108869982666, "lng": 4.915330343471355}),
+                new google.maps.LatLng({"lat": 45.75712851948427,  "lng": 4.915215008488085}),
+                new google.maps.LatLng({"lat": 45.75711916257961,  "lng": 4.9151144256538375}),
+                new google.maps.LatLng({"lat": 45.75712009827015,  "lng": 4.915048711535463}),
+                new google.maps.LatLng({"lat": 45.75712758379386,  "lng": 4.914867662433818}),
+                new google.maps.LatLng({"lat": 45.75717530398399,  "lng": 4.914831452613489}),
+                new google.maps.LatLng({"lat": 45.757223959822106, "lng": 4.914814018255553}),
+                new google.maps.LatLng({"lat": 45.75727074424183,  "lng": 4.914789878375334}),
+                new google.maps.LatLng({"lat": 45.75732033568391,  "lng": 4.914755009659462}),
+                new google.maps.LatLng({"lat": 45.75736431296357,  "lng": 4.914759032972832}),
+                new google.maps.LatLng({"lat": 45.75738489806131,  "lng": 4.914850228075882}),
+                new google.maps.LatLng({"lat": 45.75738957649155,  "lng": 4.914956175327956}),
+                new google.maps.LatLng({"lat": 45.7573923835495,   "lng": 4.9150701692067695}),
+                new google.maps.LatLng({"lat": 45.757418582750304, "lng": 4.91514929436971}),
+                new google.maps.LatLng({"lat": 45.75744665330892,  "lng": 4.915239148368304}),
+                new google.maps.LatLng({"lat": 45.75744665330892,  "lng": 4.915239148368304}),
+                new google.maps.LatLng({"lat": 45.75744665330892,  "lng": 4.915239148368304}),
+                new google.maps.LatLng({"lat": 45.75744839182565,  "lng": 4.91527096873621}),
+                new google.maps.LatLng({"lat": 45.75745389952466,  "lng": 4.915283373766067}),
+            ];      
+      
+            var distance = google.maps.geometry.spherical.computeLength(coords_yellow);
+            console.log("Distance is " + distance);
+            var duration = 1 * 60;
+            var speed = distance / duration;
+            var fps = 20;
+            var resolution = speed * (1 / fps);
 
-        var coords_blue_fine = getFineData(coords_blue, resolution)
+            console.log('>>>>>> Blue Computation');
+            var coords_blue_fine = getFineData(coords_blue, resolution)
+            console.log('>>>>>> Yellow Computation')
+            var coords_yellow_fine = getFineData(coords_yellow, resolution)
 
-        var coords_yellow = [
-            new google.maps.LatLng({"lat": 45.757399869036696, "lng": 4.9148998489407765}),
-            new google.maps.LatLng({"lat": 45.75740641883717,  "lng": 4.914992385148285}),
-            new google.maps.LatLng({"lat": 45.757397061979106, "lng": 4.9150661458934}),
-            new google.maps.LatLng({"lat": 45.75742887529012,  "lng": 4.915197574130149}),
-            new google.maps.LatLng({"lat": 45.75745507447377,  "lng": 4.915318273531245}),
-            new google.maps.LatLng({"lat": 45.75750466575203,  "lng": 4.915409468634296}),
-            new google.maps.LatLng({"lat": 45.75752244374669,  "lng": 4.915492617110607}),
-            new google.maps.LatLng({"lat": 45.75755519266943,  "lng": 4.9155623545423515}),
-            new google.maps.LatLng({"lat": 45.75756735655013,  "lng": 4.9156401386008355}),
-            new google.maps.LatLng({"lat": 45.75754864288644,  "lng": 4.9156750073167075}),
-            new google.maps.LatLng({"lat": 45.75751963669528,  "lng": 4.915692441674644}),
-            new google.maps.LatLng({"lat": 45.7575074728042,   "lng": 4.915711217137038}),
-            new google.maps.LatLng({"lat": 45.757460688582945, "lng": 4.91575010916628}),
-            new google.maps.LatLng({"lat": 45.75742700391937,  "lng": 4.915778272359868}),
-            new google.maps.LatLng({"lat": 45.75739519060732,  "lng": 4.915782295673239}),
-            new google.maps.LatLng({"lat": 45.75727074424183,  "lng": 4.915876172985202}),
-            new google.maps.LatLng({"lat": 45.75721741000021,  "lng": 4.915917747223358}),
-            new google.maps.LatLng({"lat": 45.757162204328026, "lng": 4.915779613464325}),
-            new google.maps.LatLng({"lat": 45.75712103396066,  "lng": 4.915693782779101}),
-            new google.maps.LatLng({"lat": 45.757089220474164, "lng": 4.915547602393328}),
-            new google.maps.LatLng({"lat": 45.7571069986012,   "lng": 4.915460430603648}),
-            new google.maps.LatLng({"lat": 45.757108869982666, "lng": 4.915330343471355}),
-            new google.maps.LatLng({"lat": 45.75712851948427,  "lng": 4.915215008488085}),
-            new google.maps.LatLng({"lat": 45.75711916257961,  "lng": 4.9151144256538375}),
-            new google.maps.LatLng({"lat": 45.75712009827015,  "lng": 4.915048711535463}),
-            new google.maps.LatLng({"lat": 45.75712758379386,  "lng": 4.914867662433818}),
-            new google.maps.LatLng({"lat": 45.75717530398399,  "lng": 4.914831452613489}),
-            new google.maps.LatLng({"lat": 45.757223959822106, "lng": 4.914814018255553}),
-            new google.maps.LatLng({"lat": 45.75727074424183,  "lng": 4.914789878375334}),
-            new google.maps.LatLng({"lat": 45.75732033568391,  "lng": 4.914755009659462}),
-            new google.maps.LatLng({"lat": 45.75736431296357,  "lng": 4.914759032972832}),
-            new google.maps.LatLng({"lat": 45.75738489806131,  "lng": 4.914850228075882}),
-            new google.maps.LatLng({"lat": 45.75738957649155,  "lng": 4.914956175327956}),
-            new google.maps.LatLng({"lat": 45.7573923835495,   "lng": 4.9150701692067695}),
-            new google.maps.LatLng({"lat": 45.757418582750304, "lng": 4.91514929436971}),
-            new google.maps.LatLng({"lat": 45.75744665330892,  "lng": 4.915239148368304}),
-            new google.maps.LatLng({"lat": 45.75744665330892,  "lng": 4.915239148368304}),
-            new google.maps.LatLng({"lat": 45.75744665330892,  "lng": 4.915239148368304}),
-        ];      
-
+            setTimeout(function(){}, 2000);
 
             moveMarker(map, marker_red, coords_red[0].lat, coords_red[0].lng);
 
             for (i = 0; i < coords_blue_fine.length; i++) {
+
+                console.log(i);
                 setTimeout(function (coords_blue_fine)
                 {
-
                     route_blue.getPath().push(new google.maps.LatLng(coords_blue_fine.lat(), coords_blue_fine.lng()));
                     moveMarker(map, marker_blue, coords_blue_fine.lat(), coords_blue_fine.lng());
-                }, 100 * i, coords_blue_fine[i]);
-                // setTimeout(function (coords_yellow)
-                // {
-                //     route_yellow.getPath().push(new google.maps.LatLng(coords_yellow.lat, coords_yellow.lng));
-                //     moveMarker(map, marker_yellow, coords_yellow.lat, coords_yellow.lng);
-                // }, 2000 * i, coords_yellow[i]);                
+                 
+                }, 130 * i, coords_blue_fine[i]);
+                setTimeout(function (coords_yellow_fine)
+                {
+                    route_yellow.getPath().push(new google.maps.LatLng(coords_yellow_fine.lat(), coords_yellow_fine.lng()));
+                    moveMarker(map, marker_yellow, coords_yellow_fine.lat(), coords_yellow_fine.lng());
+                }, 100 * i, coords_yellow_fine[i]);                
             }
         }
         
@@ -192,14 +209,16 @@
                 latLngA = roughData[i - 1];
                 latLngB = roughData[i];
                 distanceDiff = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
-                console.log(latLngA.lat())
+                console.log(latLngA.lat());
+                console.log(latLngB.lat());
+                console.log("index : " + i);
                 steps = Math.ceil(distanceDiff / resolution);
                 step = 1 / steps;
                 previousInterpolatedLatLng = latLngA;
-                console.log(steps)
+                console.log("Steps = " + steps);
                 for (var j = 0; j < steps; j++) {
-                var interpolated = google.maps.geometry.spherical.interpolate(latLngA, latLngB, step * j);
-                fineData.push(interpolated)
+                    var interpolated = google.maps.geometry.spherical.interpolate(latLngA, latLngB, step * j);
+                    fineData.push(interpolated)
                 }
             }
             console.log(fineData.length)
