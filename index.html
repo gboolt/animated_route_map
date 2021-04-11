@@ -68,17 +68,17 @@
 
             moveMarker(map, marker_red, coords_red[0].lat, coords_red[0].lng);
 
-            for (i = 0; i < coords_blue.length; i++) {
-                setTimeout(function (coords_blue)
+            for (i = 0; i < coords_blue_fine.length; i++) {
+                setTimeout(function (coords_blue_fine)
                 {
-                    route_blue.getPath().push(new google.maps.LatLng(coords_blue.lat, coords_blue.lng));
-                    moveMarker(map, marker_blue, coords_blue.lat, coords_blue.lng);
-                }, 2000 * i, coords_blue[i]);
-                setTimeout(function (coords_yellow)
-                {
-                    route_yellow.getPath().push(new google.maps.LatLng(coords_yellow.lat, coords_yellow.lng));
-                    moveMarker(map, marker_yellow, coords_yellow.lat, coords_yellow.lng);
-                }, 2000 * i, coords_yellow[i]);                
+                    route_blue.getPath().push(new google.maps.LatLng(coords_blue_fine.lat, coords_blue_fine.lng));
+                    moveMarker(map, marker_blue, coords_blue_fine.lat, coords_blue_fine.lng);
+                }, 2000 * i, coords_blue_fine[i]);
+                // setTimeout(function (coords_yellow)
+                // {
+                //     route_yellow.getPath().push(new google.maps.LatLng(coords_yellow.lat, coords_yellow.lng));
+                //     moveMarker(map, marker_yellow, coords_yellow.lat, coords_yellow.lng);
+                // }, 2000 * i, coords_yellow[i]);                
             }
         }
         var coords_red = [
@@ -86,6 +86,9 @@
             "lat": 45.757385833747364, "lng": 4.915322296844615
             },
         ];
+
+
+
         var coords_blue = [
             {"lat": 45.757490630489066, "lng": 4.915373258813967},
             {"lat": 45.75746817406099,  "lng": 4.915300839173309},
@@ -126,6 +129,13 @@
             {"lat": 45.757437296457645,  "lng": 4.915302180277766},
             {"lat": 45.757385833747364, "lng": 4.915322296844615},
         ];
+        var distance = google.maps.geometry.spherical.computeLength(coords_blue);
+        var duration = 10 * 60;
+        var speed = distance / duration;
+        var fps = 20;
+        var resolution = speed * (1 / fps);
+
+        var coords_blue_fine = getFineData(coords_blue, resolution)
 
         var coords_yellow = [
             {"lat": 45.757399869036696, "lng": 4.9148998489407765},
@@ -166,7 +176,30 @@
             {"lat": 45.75744665330892,  "lng": 4.915239148368304},
             {"lat": 45.75744665330892,  "lng": 4.915239148368304},
             {"lat": 45.75744665330892,  "lng": 4.915239148368304},
-        ];        
+        ];      
+
+        function getFineData(roughData, resolution) {
+            var fineData = [];
+            var latLngA;
+            var latLngB;
+            var steps;
+            var step;
+
+            for (var i = 1; i < roughData.length; i++) {
+                latLngA = roughData[i - 1];
+                latLngB = roughData[i];
+                distanceDiff = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
+                steps = Math.ceil(distanceDiff / resolution);
+                step = 1 / steps;
+                previousInterpolatedLatLng = latLngA;
+                for (var j = 0; j < steps; j++) {
+                var interpolated = google.maps.geometry.spherical.interpolate(latLngA, latLngB, step * j);
+                fineData.push(interpolated)
+                }
+            }
+            console.log(fineData.length)
+            return fineData;
+        }          
     </script>
 </head>
 <body>
