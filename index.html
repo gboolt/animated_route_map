@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animated route</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        html, body, #map {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=geometry"></script>
+    <script>
+        var map;
+
+        function initialize() {
+            var markLAT = coords_red[0].lat;
+            var markLNG = coords_red[0].lng;
+
+            map = new google.maps.Map(document.getElementById("map"), {
+              center: new google.maps.LatLng(markLAT, markLNG),
+              zoom: 20,
+              mapTypeId: google.maps.MapTypeId.SATELLITE 
+            });
+
+            autoRefresh();
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        var icon_red = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/red.png");
+        var icon_blue = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/blue.png");
+        var icon_yellow = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/micons/yellow.png");
+
+        function moveMarker(map, marker, lat, lon) {
+            marker.setPosition(new google.maps.LatLng(lat, lon));
+            //map.panTo(new google.maps.LatLng(lat, lon));  //Stay Fix Position Map
+        }
+
+        function autoRefresh() {
+            var i, route, marker_red, marker_blue, marker_yellow;
+
+            route_yellow = new google.maps.Polyline({
+                path: [],
+                geodesic : true,
+                strokeColor: '#FFFF00',
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                editable: false,
+                map:map
+            });
+
+            route_blue = new google.maps.Polyline({
+                path: [],
+                geodesic : true,
+                strokeColor: '#0000FF',
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                editable: false,
+                map:map
+            });
+
+            marker_red=new google.maps.Marker({map:map,icon:icon_red});
+            marker_blue=new google.maps.Marker({map:map,icon:icon_blue});
+            marker_yellow=new google.maps.Marker({map:map,icon:icon_yellow});
+
+            moveMarker(map, marker_red, coords_red[0].lat, coords_red[0].lng);
+
+            for (i = 0; i < coords_blue.length; i++) {
+                setTimeout(function (coords_blue)
+                {
+                    route_blue.getPath().push(new google.maps.LatLng(coords_blue.lat, coords_blue.lng));
+                    moveMarker(map, marker_blue, coords_blue.lat, coords_blue.lng);
+                }, 2000 * i, coords_blue[i]);
+                setTimeout(function (coords_yellow)
+                {
+                    route_yellow.getPath().push(new google.maps.LatLng(coords_yellow.lat, coords_yellow.lng));
+                    moveMarker(map, marker_yellow, coords_yellow.lat, coords_yellow.lng);
+                }, 2000 * i, coords_yellow[i]);                
+            }
+        }
+        var coords_red = [
+            {
+            "lat": 45.757385833747364, "lng": 4.915322296844615
+            },
+        ];
+        var coords_blue = [
+            {"lat": 45.757490630489066, "lng": 4.915373258813967},
+            {"lat": 45.75746817406099,  "lng": 4.915300839173309},
+            {"lat": 45.757441974883484, "lng": 4.915251218308414},
+            {"lat": 45.75743448940191,  "lng": 4.915209644070258},
+            {"lat": 45.75741577569366,  "lng": 4.915164046518733},
+            {"lat": 45.75740080472252,  "lng": 4.915111743444925},
+            {"lat": 45.75739051217756,  "lng": 4.915051393744377},
+            {"lat": 45.757388640805544, "lng": 4.915009819506221},
+            {"lat": 45.75738676943345,  "lng": 4.9149427642833885},
+            {"lat": 45.75737647688587,  "lng": 4.914859615807079},
+            {"lat": 45.75734934197864,  "lng": 4.914776467330767},
+            {"lat": 45.757314721560576, "lng": 4.914771102912941},
+            {"lat": 45.75727448699372,  "lng": 4.91477914953968},
+            {"lat": 45.7572398665292,    "lng": 4.914814018255553},
+            {"lat": 45.75714816897892,   "lng": 4.914848886971426},
+            {"lat": 45.75706769957596,   "lng": 4.91492264771654},
+            {"lat": 45.75702372206251,   "lng": 4.915037982699809},
+            {"lat": 45.75699845836891,   "lng": 4.915118448967208},
+            {"lat": 45.75702840052303,   "lng": 4.915257923830697},
+            {"lat": 45.7570396288267,    "lng": 4.915430926305602},
+            {"lat": 45.75707331372412,   "lng": 4.915493958215064},
+            {"lat": 45.7571069986012,    "lng": 4.91562672755627},
+            {"lat": 45.757133197935985,  "lng": 4.91570182940584},
+            {"lat": 45.75714816897892,   "lng": 4.915762179106388},
+            {"lat": 45.75716594708716,   "lng": 4.915793024508892},
+            {"lat": 45.75721460293346,   "lng": 4.915901653969878},
+            {"lat": 45.75724548066005,   "lng": 4.915908359492161},
+            {"lat": 45.75726700148968,   "lng": 4.915882878507485},
+            {"lat": 45.75730817174934,   "lng": 4.91585337420944},
+            {"lat": 45.75741671137921,   "lng": 4.915770225733128},
+            {"lat": 45.757480337960644,  "lng": 4.915731333703887},
+            {"lat": 45.757554256986204,  "lng": 4.915658914063229},
+            {"lat": 45.75756174245169,   "lng": 4.915571742273548},
+            {"lat": 45.757515893959855,  "lng": 4.915429585201145},
+            {"lat": 45.757496244594655,  "lng": 4.915366553291684},
+            {"lat": 45.757475659538,     "lng": 4.915323637949072},
+            {"lat": 45.757437296457645,  "lng": 4.915302180277766},
+            {"lat": 45.757385833747364, "lng": 4.915322296844615},
+        ];
+
+        var coords_yellow = [
+            {"lat": 45.757399869036696, "lng": 4.9148998489407765},
+            {"lat": 45.75740641883717,  "lng": 4.914992385148285},
+            {"lat": 45.757397061979106, "lng": 4.9150661458934},
+            {"lat": 45.75742887529012,  "lng": 4.915197574130149},
+            {"lat": 45.75745507447377,  "lng": 4.915318273531245},
+            {"lat": 45.75750466575203,  "lng": 4.915409468634296},
+            {"lat": 45.75752244374669,  "lng": 4.915492617110607},
+            {"lat": 45.75755519266943,  "lng": 4.9155623545423515},
+            {"lat": 45.75756735655013,  "lng": 4.9156401386008355},
+            {"lat": 45.75754864288644,  "lng": 4.9156750073167075},
+            {"lat": 45.75751963669528,  "lng": 4.915692441674644},
+            {"lat": 45.7575074728042,   "lng": 4.915711217137038},
+            {"lat": 45.757460688582945, "lng": 4.91575010916628},
+            {"lat": 45.75742700391937,  "lng": 4.915778272359868},
+            {"lat": 45.75739519060732,  "lng": 4.915782295673239},
+            {"lat": 45.75727074424183,  "lng": 4.915876172985202},
+            {"lat": 45.75721741000021,  "lng": 4.915917747223358},
+            {"lat": 45.757162204328026, "lng": 4.915779613464325},
+            {"lat": 45.75712103396066,  "lng": 4.915693782779101},
+            {"lat": 45.757089220474164, "lng": 4.915547602393328},
+            {"lat": 45.7571069986012,   "lng": 4.915460430603648},
+            {"lat": 45.757108869982666, "lng": 4.915330343471355},
+            {"lat": 45.75712851948427,  "lng": 4.915215008488085},
+            {"lat": 45.75711916257961,  "lng": 4.9151144256538375},
+            {"lat": 45.75712009827015,  "lng": 4.915048711535463},
+            {"lat": 45.75712758379386,  "lng": 4.914867662433818},
+            {"lat": 45.75717530398399,  "lng": 4.914831452613489},
+            {"lat": 45.757223959822106, "lng": 4.914814018255553},
+            {"lat": 45.75727074424183,  "lng": 4.914789878375334},
+            {"lat": 45.75732033568391,  "lng": 4.914755009659462},
+            {"lat": 45.75736431296357,  "lng": 4.914759032972832},
+            {"lat": 45.75738489806131,  "lng": 4.914850228075882},
+            {"lat": 45.75738957649155,  "lng": 4.914956175327956},
+            {"lat": 45.7573923835495,   "lng": 4.9150701692067695},
+            {"lat": 45.757418582750304, "lng": 4.91514929436971},
+            {"lat": 45.75744665330892,  "lng": 4.915239148368304},
+            {"lat": 45.75744665330892,  "lng": 4.915239148368304},
+            {"lat": 45.75744665330892,  "lng": 4.915239148368304},
+        ];        
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
